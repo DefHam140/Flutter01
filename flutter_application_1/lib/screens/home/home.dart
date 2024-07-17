@@ -6,7 +6,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 223, 223),
+      backgroundColor: Color.fromARGB(255, 223, 255, 225),
       body: Container(
         margin: EdgeInsets.only(top: 48, left: 256),
         child: ClipRRect(
