@@ -6,7 +6,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff222255),
+      backgroundColor: Color.fromARGB(255, 218, 218, 255),
       body: Center(
         child: Text(
           "Profile"
