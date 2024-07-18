@@ -19,12 +19,12 @@ class SmartDeviceBox extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(15.0),
+    return SizedBox(
+      height: 256,
       child: Container(
           decoration: BoxDecoration(
               color: Colors.grey[200], borderRadius: BorderRadius.circular(12)),
-          padding: const EdgeInsets.symmetric(vertical: 25.0),
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -36,10 +36,10 @@ class SmartDeviceBox extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 8),
-                        child: Text(smartDeviceName,
-                            style: const TextStyle(fontSize: 12)),
-                      )),
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Text(smartDeviceName,
+                        style: const TextStyle(fontSize: 12)),
+                  )),
                   Transform.rotate(
                     angle: pi / 2,
                     child: CupertinoSwitch(

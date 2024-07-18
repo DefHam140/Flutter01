@@ -9,9 +9,9 @@ class Control extends StatefulWidget {
 }
 
 class _ControlState extends State<Control> {
-  final double horizontalPadding = 40.0;
+  final double horizontalPadding = 24.0;
 
-  final double verticalPadding = 25.0;
+  final double verticalPadding = 34.0;
 
   //list of smart devices
   List mySmartDevices = [
@@ -81,10 +81,11 @@ class _ControlState extends State<Control> {
             Expanded(
                 child: GridView.builder(
                     itemCount: mySmartDevices.length,
-                    padding: const EdgeInsets.all(25.0),
+                    
+                    padding: const EdgeInsets.all(24.0),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2, childAspectRatio: 1 / 1.3),
+                            crossAxisCount: 2, ),
                     itemBuilder: (context, index) {
                       return SmartDeviceBox(
                         smartDeviceName: mySmartDevices[index][0],
