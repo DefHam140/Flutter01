@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/util/smart_device_box.dart';
 
 class Control extends StatefulWidget {
   const Control({super.key});
@@ -9,15 +10,24 @@ class Control extends StatefulWidget {
 
 class _ControlState extends State<Control> {
   final double horizontalPadding = 40.0;
+
   final double verticalPadding = 25.0;
 
   //list of smart devices
   List mySmartDevices = [
     ["Smart Light", "lib/icons/light_bulb.png", true],
     ["Smart AC", "lib/icons/calendar.png", true],
-    ["Smart TV", "lib/icons/camera.png", true],
+    ["Smart TV", "lib/icons/camera.png", false],
     ["Smart Fan", "lib/icons/fan_64.png", true],
   ];
+
+  void powerSwitchChanged(bool value, int index) {
+    setState(() {
+      mySmartDevices[index][2] = value;
+    });
+
+    
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +35,17 @@ class _ControlState extends State<Control> {
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //custom app bar
             Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: horizontalPadding, vertical: verticalPadding),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   //menu icon
-                  Image.asset('lib/icons.menu.png',
+                  Image.asset('lib/icons/menu.png',
                       height: 45, color: Colors.grey[800]),
 
                   //account icon
@@ -69,16 +80,17 @@ class _ControlState extends State<Control> {
             ),
             Expanded(
                 child: GridView.builder(
-                  itemCount: mySmartDevices.length,
+                    itemCount: mySmartDevices.length,
+                    padding: const EdgeInsets.all(25.0),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2),
+                            crossAxisCount: 2, childAspectRatio: 1 / 1.3),
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          color: Colors.blue,
-                        ),
+                      return SmartDeviceBox(
+                        smartDeviceName: mySmartDevices[index][0],
+                        iconPath: mySmartDevices[index][1],
+                        powerOn: mySmartDevices[index][2],
+                        onChanged: (value) => powerSwitchChanged(value, index),
                       );
                     }))
           ],

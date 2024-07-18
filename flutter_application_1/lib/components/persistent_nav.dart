@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/control/control.dart';
 import 'package:flutter_application_1/screens/home/home.dart';
 import 'package:flutter_application_1/screens/profile/profile.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -57,7 +58,7 @@ class _PersistentTabScreenState extends State<PersistentTabScreen> {
             ),
           ),
           PersistentTabConfig(
-            screen: const Profile(),
+            screen: Control(),
             item: ItemConfig(
               icon: FaIcon(FontAwesomeIcons.airbnb),
               //title: "Profile",
